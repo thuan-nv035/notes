@@ -1,25 +1,61 @@
 <template>
 <div>
-    <div class="flex-col bg-gray-800 h-screen w-screen flex items-center justify-center font-sans ">
-        <div class="bg-gray-600 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg md:max-w-2xl">
-            <div class="mb-4">
-                <h1 class="text-white font-bold text-2xl text-center">Edit Note</h1>
-                <div class="flex mt-4">
-                    <input class="border border-gray-800 focus:border-blue-500 rounded w-full py-2 px-3 mr-4 text-black" v-model="msg" />
-                    <!-- Add button -->
-
-                </div>
-            </div>
-            <!-- delete button -->
-
-            <!-- Completed -->
-            <div class="flex justify-center">
-                <button @click="edit" class="bg-blue-700 p-2 text-white w-44 rounded">Edit</button>
-            </div>
+     <div
+    class="
+      h-100
+      w-full
+      flex
+      items-center
+      justify-center
+      bg-teal-lightest
+      font-sans
+    "
+  >
+    <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+      <div class="mb-4">
+        <h1 class="text-grey-darkest">Edit notes</h1>
+        <div class="flex mt-4">
+          <input
+            v-model="msg"
+            class="
+              shadow
+              appearance-none
+              border
+              rounded
+              w-full
+              py-2
+              px-3
+              mr-4
+              text-grey-darker
+            "
+            placeholder="Add Todo"
+          />
+          <button
+           @click="edit" 
+            class="
+              flex-no-shrink
+              p-2
+              border-2
+              rounded
+              text-teal
+              border-teal
+              hover:text-white hover:bg-teal
+            "
+          >
+            Edit
+          </button>
         </div>
-
-        <!-- End of file -->
+      </div>
+      <div>
+        <div v-for="(todo, index) in todos" :key="index" >
+          <p class="w-full text-grey-darkest">
+            {{todo.content}}
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
+   
 </div>
 </template>
 
